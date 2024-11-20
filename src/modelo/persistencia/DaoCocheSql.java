@@ -72,7 +72,7 @@ public class DaoCocheSql implements DaoCoche{
 
 
 	@Override
-	public boolean modificar(Coche c) {
+	public boolean modificar(Coche c,int id) {
 		if(!abrirConexion()){
 			return false;
 		}
@@ -80,10 +80,12 @@ public class DaoCocheSql implements DaoCoche{
 		String query = "update coche set marca=?, modelo=? ,tipoMotor=?, kilometros=? WHERE ID=?";
 		try {
 			PreparedStatement ps = conexion.prepareStatement(query);
+			
 			ps.setString(1, c.getMarca());
 			ps.setString(2, c.getModelo());
 			ps.setString(3,c.getTipoMotor());
-			ps.setInt(4, c.getId());
+			ps.setInt(4, c.getKilometros());
+			ps.setInt(5, id);
 			
 			int numeroFilasAfectadas = ps.executeUpdate();
 			if(numeroFilasAfectadas == 0)

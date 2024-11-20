@@ -37,8 +37,8 @@ public class GestorCoche {
 		return baja;
 	}
 	
-	public boolean modificar(Coche c) {
-		boolean modificar = daoCoche.modificar(c);
+	public boolean modificar(Coche c,int id) {
+		boolean modificar = daoCoche.modificar(c,id);
 		return modificar;
 	}
 	

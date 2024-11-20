@@ -69,7 +69,29 @@ public class Interfaz {
 					System.out.println("hubo un error");
 				break;
 			case 3:
-				System.out.println("no es posible modificar un cooche ahora mismo...");
+				System.out.println("Porfavor introduzca el id del coche que quiere modificar:");
+				int idModificar = sc.nextInt();
+				Coche c2 = new Coche();
+				System.out.println("Elija los atributos de su coche para modificarlo:");
+
+				System.out.println("Marca:");
+				String marca2 = scString.nextLine();
+
+				System.out.println("Modelo:");
+				String modelo2 = scString.nextLine();
+				System.out.println("Tipo de Motor:");
+				String tipoMotor2 = scString.nextLine();
+
+				System.out.println("kilometros:");
+				int kilometros2 = sc.nextInt();
+				c2.setMarca(marca2);
+				c2.setModelo(modelo2);
+				c2.setKilometros(kilometros2);
+				c2.setTipoMotor(tipoMotor2);
+				boolean modificar = gestorCoche.modificar(c2, idModificar);
+				if(modificar){
+					System.out.println("Se  ha modificado correctamente");
+				}
 				break;
 			case 4:
 				System.out.println("escriba el id del coche que quiere buscar:");
